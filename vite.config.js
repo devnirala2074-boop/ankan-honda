@@ -46,6 +46,7 @@ function googlePlacesApiMiddleware(mode) {
 }
 
 export default defineConfig(({ mode }) => ({
+  base: '/ankan-honda/',
   plugins: [react(), googlePlacesApiMiddleware(mode)],
   server: {
     port: 5173,
