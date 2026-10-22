@@ -1,0 +1,1122 @@
+/* ==========================================================================
+   VEHICLES CATALOGUE, DETAILS & GALLERY STYLES
+   ========================================================================== */
+
+/* Vehicles Grid */
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 680px) {
+  .vehicles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .vehicles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Vehicle Card */
+.vehicle-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-base), box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: #C8CDD6;
+}
+
+.vehicle-card-media {
+  position: relative;
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #F0F2F5 100%);
+  border-bottom: 1px solid var(--border-gray);
+  overflow: hidden;
+}
+
+.vehicle-card-badges {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.vehicle-category-pill {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.24rem 0.65rem;
+  border-radius: 4px;
+}
+
+.pill-motorcycle {
+  background-color: var(--charcoal);
+  color: var(--white);
+}
+
+.pill-scooter {
+  background-color: var(--honda-red);
+  color: var(--white);
+}
+
+.vehicle-segment-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-gray);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.vehicle-card-image-link {
+  display: block;
+  padding: 2.5rem 1.25rem 1.25rem;
+}
+
+.vehicle-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  transition: transform var(--transition-base);
+}
+
+.vehicle-card:hover .vehicle-card-img {
+  transform: scale(1.03);
+}
+
+.vehicle-card-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.vehicle-card-title {
+  font-family: var(--font-display);
+  font-size: 1.32rem;
+  font-weight: 800;
+  color: var(--charcoal);
+  margin-bottom: 0.65rem;
+}
+
+.vehicle-card-title a:hover {
+  color: var(--honda-red);
+}
+
+.vehicle-spec-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.vehicle-spec-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #374151;
+  background-color: var(--light-gray);
+  padding: 0.28rem 0.6rem;
+  border-radius: 4px;
+}
+
+.spec-chip-icon {
+  color: var(--honda-red);
+  flex-shrink: 0;
+}
+
+.vehicle-card-desc {
+  font-size: 0.9rem;
+  color: var(--muted-gray);
+  line-height: 1.58;
+  margin-bottom: 1.1rem;
+  flex: 1;
+}
+
+.vehicle-price-box {
+  background-color: #FAFAFB;
+  border: 1px solid var(--border-gray);
+  border-left: 3px solid var(--honda-red);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  margin-bottom: 1.15rem;
+}
+
+.vehicle-price-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted-gray);
+  margin-bottom: 0.15rem;
+}
+
+.vehicle-price-value {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.vehicle-availability-note {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--muted-gray);
+  margin-top: 0.1rem;
+}
+
+.vehicle-card-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+@media (min-width: 440px) {
+  .vehicle-card-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.vehicle-btn-details,
+.vehicle-btn-wa,
+.btn.vehicle-btn-details,
+.btn.vehicle-btn-wa {
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Catalogue Filter & Search Bar */
+.catalogue-controls-section {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-gray);
+  padding: 1.5rem 0;
+}
+
+.catalogue-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+@media (min-width: 992px) {
+  .catalogue-toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-gray);
+  background-color: var(--light-gray);
+  color: var(--charcoal);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.category-tab-btn:hover {
+  border-color: var(--charcoal);
+}
+
+.category-tab-btn.active {
+  background-color: var(--honda-red);
+  border-color: var(--honda-red);
+  color: var(--white);
+}
+
+.category-count-pill {
+  font-size: 0.74rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.category-tab-btn.active .category-count-pill {
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.search-sort-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  max-width: 580px;
+}
+
+@media (min-width: 640px) {
+  .search-sort-group {
+    flex-direction: row;
+  }
+}
+
+.search-input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-gray);
+  pointer-events: none;
+}
+
+.catalogue-search-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 2.4rem 0 2.6rem;
+  border: 1px solid #CFD3DA;
+  border-radius: var(--radius-sm);
+  background-color: var(--white);
+  color: var(--charcoal);
+  font-size: 0.9rem;
+}
+
+.catalogue-search-input:focus {
+  border-color: var(--honda-red);
+  outline: none;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--muted-gray);
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.sort-select-wrapper {
+  position: relative;
+  min-width: 210px;
+}
+
+.sort-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-gray);
+  pointer-events: none;
+}
+
+.catalogue-sort-select {
+  width: 100%;
+  height: 44px;
+  padding: 0 0.9rem 0 2.4rem;
+  border: 1px solid #CFD3DA;
+  border-radius: var(--radius-sm);
+  background-color: var(--white);
+  color: var(--charcoal);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.catalogue-results-bar {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--light-gray);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--muted-gray);
+}
+
+.reset-filters-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  color: var(--honda-red);
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.empty-catalogue-state,
+.showroom-gallery-placeholder,
+.not-found-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-lg);
+  padding: 3rem 1.75rem;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.empty-catalogue-state h3,
+.showroom-gallery-placeholder h2,
+.not-found-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--charcoal);
+  margin-bottom: 0.65rem;
+}
+
+.empty-catalogue-state p,
+.showroom-gallery-placeholder p,
+.not-found-card p {
+  font-size: 0.95rem;
+  color: var(--muted-gray);
+  margin-bottom: 1.5rem;
+}
+
+.empty-state-actions,
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.catalogue-disclaimer-card {
+  margin-top: 2.75rem;
+  background-color: var(--white);
+  border: 1px solid var(--border-gray);
+  border-left: 4px solid var(--honda-red);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 900px) {
+  .catalogue-disclaimer-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.disclaimer-card-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  max-width: 780px;
+}
+
+.disclaimer-card-left h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.25rem;
+}
+
+.disclaimer-card-left p {
+  font-size: 0.88rem;
+  color: var(--muted-gray);
+}
+
+/* ==========================================================================
+   VEHICLE DETAILS PAGE
+   ========================================================================== */
+
+.breadcrumb-bar {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.breadcrumb-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.breadcrumb-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.breadcrumb-back:hover {
+  color: #FF5555;
+}
+
+.breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #9CA3AF;
+}
+
+.breadcrumb-current {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.vehicle-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .vehicle-detail-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3.25rem;
+  }
+}
+
+.vehicle-detail-stage {
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #EFF1F5 100%);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.vehicle-detail-stage-badges {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.vehicle-detail-main-img {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: contain;
+  margin: 0.5rem 0 1rem;
+}
+
+.vehicle-detail-image-footnote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-gray);
+  font-size: 0.78rem;
+  color: var(--muted-gray);
+}
+
+.vehicle-detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  font-weight: 800;
+  color: var(--charcoal);
+  line-height: 1.12;
+  margin-bottom: 0.75rem;
+}
+
+.vehicle-detail-lead {
+  font-size: 1.04rem;
+  color: var(--body-text);
+  margin-bottom: 1.5rem;
+}
+
+.vehicle-key-metrics {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 540px) {
+  .vehicle-key-metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.key-metric-box {
+  background-color: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted-gray);
+}
+
+.metric-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-top: 0.1rem;
+}
+
+.vehicle-detail-price-card {
+  background-color: #FFF9F9;
+  border: 1px solid var(--red-border);
+  border-left: 4px solid var(--honda-red);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.price-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.price-card-tag {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--honda-red);
+}
+
+.price-card-location {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--muted-gray);
+}
+
+.price-card-status {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--charcoal);
+  margin-bottom: 0.35rem;
+}
+
+.price-card-note {
+  font-size: 0.84rem;
+  color: var(--muted-gray);
+  line-height: 1.5;
+}
+
+.vehicle-detail-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.vehicle-overview-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.vehicle-overview-block p {
+  font-size: 0.95rem;
+  color: var(--muted-gray);
+  line-height: 1.68;
+}
+
+/* Specs & Highlights Section */
+.specs-highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 992px) {
+  .specs-highlights-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.highlights-panel,
+.specs-panel {
+  background-color: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-xs);
+}
+
+.highlights-panel h2,
+.specs-panel h2 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--charcoal);
+}
+
+.panel-subtext {
+  font-size: 0.88rem;
+  color: var(--muted-gray);
+  margin-top: 0.25rem;
+  margin-bottom: 1.35rem;
+}
+
+.verified-highlights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.verified-highlights-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.94rem;
+  color: var(--body-text);
+}
+
+.highlight-check-icon {
+  color: var(--honda-red);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.specs-table-wrapper {
+  overflow-x: auto;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.specs-table tr {
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.specs-table th {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  color: var(--muted-gray);
+  font-weight: 600;
+  width: 44%;
+}
+
+.specs-table td {
+  padding: 0.75rem 0.5rem;
+  color: var(--charcoal);
+  font-weight: 600;
+}
+
+/* Quick Questions Chips */
+.quick-questions-box {
+  margin-top: 2rem;
+  background-color: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-md);
+  padding: 1.65rem;
+}
+
+.quick-questions-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.quick-questions-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.quick-questions-header p {
+  font-size: 0.88rem;
+  color: var(--muted-gray);
+}
+
+.quick-questions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.quick-question-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.95rem;
+  background-color: var(--light-gray);
+  border: 1px solid var(--border-gray);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.quick-question-chip:hover {
+  background-color: var(--whatsapp-green);
+  border-color: var(--whatsapp-green);
+  color: var(--white);
+}
+
+/* ==========================================================================
+   GALLERY & LIGHTBOX
+   ========================================================================== */
+
+.gallery-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.gallery-distinction-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.84rem;
+  color: var(--muted-gray);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--light-gray);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery-card {
+  background-color: var(--white);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xs);
+}
+
+.gallery-card-media {
+  position: relative;
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, #EEF0F4 100%);
+  border-bottom: 1px solid var(--border-gray);
+  overflow: hidden;
+}
+
+.gallery-source-pill {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
+  background-color: rgba(21, 21, 21, 0.85);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.22rem 0.55rem;
+  border-radius: 4px;
+}
+
+.gallery-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  padding: 1.75rem 1rem 1rem;
+  transition: transform var(--transition-base);
+}
+
+.gallery-card:hover .gallery-card-img {
+  transform: scale(1.03);
+}
+
+.gallery-zoom-trigger {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: var(--charcoal);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.7rem;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.92;
+  transition: background-color var(--transition-fast);
+}
+
+.gallery-zoom-trigger:hover {
+  background-color: var(--honda-red);
+}
+
+.gallery-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.gallery-cat-label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--honda-red);
+  margin-bottom: 0.25rem;
+}
+
+.gallery-card-title {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 0.45rem;
+}
+
+.gallery-card-caption {
+  font-size: 0.87rem;
+  color: var(--muted-gray);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.gallery-vehicle-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--honda-red);
+  margin-top: auto;
+}
+
+.showroom-placeholder-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--red-subtle-bg);
+  color: var(--honda-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.15rem;
+}
+
+/* Lightbox Modal */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 11, 14, 0.92);
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.lightbox-container {
+  width: 100%;
+  max-width: 980px;
+  background-color: #16181D;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  color: var(--white);
+}
+
+.lightbox-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox-badge {
+  background-color: var(--honda-red);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.lightbox-counter {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+}
+
+.lightbox-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--white);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox-close-btn:hover {
+  background-color: var(--honda-red);
+}
+
+.lightbox-stage {
+  position: relative;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #E5E7EB 100%);
+  padding: 2rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.lightbox-img {
+  max-height: 56vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(21, 21, 21, 0.82);
+  color: var(--white);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.lightbox-nav-btn:hover {
+  background-color: var(--honda-red);
+}
+
+.lightbox-prev {
+  left: 0.85rem;
+}
+
+.lightbox-next {
+  right: 0.85rem;
+}
+
+.lightbox-footer {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.lightbox-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.lightbox-caption {
+  font-size: 0.88rem;
+  color: #B0B6C3;
+  margin-top: 0.2rem;
+}

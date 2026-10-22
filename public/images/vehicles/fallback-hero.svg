@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <radialGradient id="heroGlow" cx="65%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#CC0000" stop-opacity="0.32"/>
+      <stop offset="60%" stop-color="#151515" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0D0D0F"/>
+    </radialGradient>
+    <linearGradient id="heroRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF1A1A"/>
+      <stop offset="100%" stop-color="#990000"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="#0E0F12"/>
+  <rect width="1200" height="720" fill="url(#heroGlow)"/>
+  <!-- Studio light beams -->
+  <path d="M680 0L1080 0L920 720L480 720Z" fill="#FFFFFF" fill-opacity="0.02"/>
+  <ellipse cx="640" cy="575" rx="370" ry="28" fill="#CC0000" fill-opacity="0.18"/>
+  <ellipse cx="640" cy="575" rx="280" ry="14" fill="#000000" fill-opacity="0.65"/>
+  <!-- Stylized Studio Motorcycle Silhouette -->
+  <circle cx="390" cy="455" r="112" stroke="#1F2229" stroke-width="32" fill="none"/>
+  <circle cx="390" cy="455" r="86" stroke="#CC0000" stroke-width="4" stroke-opacity="0.7" fill="none"/>
+  <circle cx="390" cy="455" r="28" fill="#2A2E37"/>
+  <circle cx="885" cy="455" r="112" stroke="#1F2229" stroke-width="32" fill="none"/>
+  <circle cx="885" cy="455" r="86" stroke="#CC0000" stroke-width="4" stroke-opacity="0.7" fill="none"/>
+  <circle cx="885" cy="455" r="56" stroke="#B0B7C3" stroke-width="7" stroke-dasharray="16 8" fill="none"/>
+  <path d="M390 455L600 440L625 480L390 475Z" fill="#272B33"/>
+  <rect x="550" y="355" width="155" height="125" rx="18" fill="#1C1F26" stroke="#393F4C" stroke-width="4"/>
+  <path d="M765 205L885 455" stroke="#D4AF37" stroke-width="18" stroke-linecap="round"/>
+  <path d="M785 212L895 450" stroke="#AA8822" stroke-width="9" stroke-linecap="round"/>
+  <path d="M535 305C565 235 675 215 770 250L815 322L685 368L535 325Z" fill="url(#heroRed)"/>
+  <path d="M585 270C645 250 715 258 760 282" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-opacity="0.8"/>
+  <path d="M340 282L495 312L560 308L545 348L435 352L310 302Z" fill="#181A20"/>
+  <path d="M290 292L435 342L420 364L275 310Z" fill="url(#heroRed)"/>
+  <path d="M755 192L838 220L865 275L792 284Z" fill="url(#heroRed)"/>
+  <path d="M835 228L872 268L838 276Z" fill="#FFFDF5"/>
+</svg>

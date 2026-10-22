@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <defs>
+    <radialGradient id="scooterStudio" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#ECEEF2"/>
+    </radialGradient>
+    <linearGradient id="scooterRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E00000"/>
+      <stop offset="100%" stop-color="#990000"/>
+    </linearGradient>
+    <linearGradient id="scooterCharcoal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2B2E34"/>
+      <stop offset="100%" stop-color="#15171A"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" fill="url(#scooterStudio)"/>
+  <ellipse cx="400" cy="432" rx="240" ry="20" fill="#000000" fill-opacity="0.14"/>
+  <ellipse cx="400" cy="432" rx="165" ry="11" fill="#000000" fill-opacity="0.22"/>
+  <!-- Rear Wheel -->
+  <circle cx="245" cy="362" r="64" stroke="#18191C" stroke-width="22" fill="none"/>
+  <circle cx="245" cy="362" r="44" fill="#2F333B" stroke="#8C93A0" stroke-width="4"/>
+  <circle cx="245" cy="362" r="16" fill="#CC0000"/>
+  <!-- Front Wheel -->
+  <circle cx="555" cy="362" r="66" stroke="#18191C" stroke-width="22" fill="none"/>
+  <circle cx="555" cy="362" r="46" fill="#2F333B" stroke="#8C93A0" stroke-width="4"/>
+  <circle cx="555" cy="362" r="16" fill="#CC0000"/>
+  <!-- Floorboard & Underbody -->
+  <path d="M295 345L485 345L505 322L470 322L320 322Z" fill="url(#scooterCharcoal)"/>
+  <!-- Rear Body Panel -->
+  <path d="M180 265C205 235 280 232 365 250L385 335L215 335Z" fill="url(#scooterRed)"/>
+  <path d="M210 278L345 292" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-opacity="0.75"/>
+  <!-- Seat -->
+  <path d="M205 220C245 212 325 215 370 232L360 256L200 248Z" fill="#1C1E22"/>
+  <!-- Front Apron & Stem -->
+  <path d="M465 155L535 175L565 285L485 338L445 322L475 215Z" fill="url(#scooterRed)"/>
+  <!-- Front Fender -->
+  <path d="M505 292C540 278 585 284 610 312L585 325C565 308 535 306 512 316Z" fill="url(#scooterRed)"/>
+  <!-- Handlebar Cowl & Headlamp -->
+  <path d="M445 128L518 138L528 168L455 162Z" fill="url(#scooterRed)"/>
+  <rect x="498" y="140" width="28" height="18" rx="6" fill="#FFF8E7"/>
+  <path d="M430 135L465 145" stroke="#18191C" stroke-width="10" stroke-linecap="round"/>
+</svg>
