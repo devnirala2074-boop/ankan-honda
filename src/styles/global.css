@@ -1082,12 +1082,482 @@ textarea {
 }
 
 /* ==========================================================================
-   MOBILE-ONLY BUTTON FIX (MAX-WIDTH: 767PX)
+   MOBILE-ONLY RESPONSIVENESS & BUTTON FIXES (MAX-WIDTH: 767PX)
    Desktop and laptop layouts (>= 768px) remain completely untouched.
    ========================================================================== */
 
 @media (max-width: 767px) {
-  /* Ensure all button group containers stack cleanly with 12px-16px spacing and full width */
+  /* 1. Global Horizontal Overflow Prevention & Box Sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+  }
+
+  html,
+  body,
+  #root,
+  .app-shell,
+  .main-content,
+  .page-contact,
+  .page-test-ride,
+  .page-home,
+  .page-vehicles,
+  .page-services,
+  .page-about,
+  .page-gallery {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  section,
+  header,
+  footer,
+  aside,
+  form {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .section-padding {
+    padding: 2.75rem 0 !important;
+  }
+
+  .page-banner {
+    padding: 2.5rem 0 2.25rem !important;
+  }
+
+  .page-banner-title,
+  .section-title {
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .page-banner-subtitle,
+  .section-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.58 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  /* Fix CSS Grid 1fr auto-minimum expansion across all layouts on mobile */
+  .hero-grid,
+  .why-choose-grid,
+  .services-grid,
+  .welcome-editorial-grid,
+  .location-showcase-grid,
+  .vehicles-grid,
+  .vehicle-detail-grid,
+  .vehicle-key-metrics,
+  .specs-highlights-grid,
+  .gallery-grid,
+  .test-ride-layout,
+  .form-row-two,
+  .contact-main-grid,
+  .services-process-grid,
+  .about-intro-grid,
+  .about-gallery-preview-grid,
+  .footer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Ensure all grid columns and cards never exceed 100% of mobile viewport */
+  .contact-details-col,
+  .contact-form-col,
+  .test-ride-form-col,
+  .test-ride-sidebar,
+  .contact-info-panel,
+  .form-card,
+  .sidebar-info-card,
+  .location-details-card,
+  .location-map-visual,
+  .welcome-editorial-card,
+  .google-profile-card,
+  .vehicle-card,
+  .service-card,
+  .why-card,
+  .highlights-panel,
+  .specs-panel,
+  .services-checklist-card,
+  .about-pillar-card,
+  .about-gallery-card,
+  .showroom-photo-placeholder-card,
+  .catalogue-disclaimer-card,
+  .empty-catalogue-state,
+  .showroom-gallery-placeholder,
+  .not-found-card,
+  .quick-questions-box,
+  .vehicle-detail-stage,
+  .vehicle-detail-info {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .sort-select-wrapper,
+  .search-input-wrapper,
+  .search-sort-group {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* 2. Showroom Information Cards & Alignment */
+  .contact-info-panel,
+  .location-details-card,
+  .welcome-editorial-card,
+  .services-checklist-card,
+  .sidebar-info-card,
+  .google-profile-card,
+  .highlights-panel,
+  .specs-panel {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .contact-info-panel h2,
+  .location-card-header h3,
+  .welcome-card-inner h3,
+  .services-checklist-card h3,
+  .sidebar-info-card h3 {
+    font-size: 1.32rem !important;
+    line-height: 1.25 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .contact-panel-lead,
+  .location-sub {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.15rem !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .contact-methods-list,
+  .location-info-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .contact-method-card {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 14px 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .location-info-item {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .contact-method-icon,
+  .location-info-icon {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+  }
+
+  .contact-method-body,
+  .location-info-item > div:last-child {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .contact-method-body h3,
+  .location-info-item h4 {
+    font-size: 0.95rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 4px !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .contact-method-body p,
+  .location-info-item p {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .placeholder-badge {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    line-height: 1.45 !important;
+    padding: 6px 10px !important;
+    margin-top: 6px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .contact-small-hint,
+  .location-small-note {
+    font-size: 0.76rem !important;
+    line-height: 1.45 !important;
+    margin-top: 6px !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .contact-small-hint code,
+  .about-config-placeholder-box code,
+  .showroom-photo-placeholder-card code,
+  .wa-setup-notice code {
+    white-space: normal !important;
+    word-break: break-all !important;
+    overflow-wrap: anywhere !important;
+    font-size: 0.74rem !important;
+  }
+
+  .about-config-placeholder-box > div,
+  .about-pillar-card > div:last-child,
+  .showroom-photo-placeholder-card > div,
+  .services-info-alert > div,
+  .process-step-item > div:last-child,
+  .catalogue-transparency-banner > div,
+  .disclaimer-card-left > div,
+  .google-profile-info,
+  .doc-checklist li > span,
+  .sidebar-checklist li > span,
+  .service-confirm-list li > span,
+  .verified-highlights-list li > span {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .google-profile-brand-row {
+    align-items: flex-start !important;
+    gap: 12px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .google-profile-location,
+  .google-profile-ext-link {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    line-height: 1.4 !important;
+  }
+
+  .text-link-red {
+    display: inline-flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    line-height: 1.35 !important;
+  }
+
+  /* 3. Enquiry Form Mobile Responsiveness */
+  .form-card {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .form-card-header {
+    margin-bottom: 1.15rem !important;
+    padding-bottom: 0.9rem !important;
+  }
+
+  .form-card-header h2 {
+    font-size: 1.28rem !important;
+    line-height: 1.28 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .form-card-header p {
+    font-size: 0.86rem !important;
+    line-height: 1.5 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .dealership-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .form-row-two {
+    gap: 16px !important;
+  }
+
+  .form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .form-label {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    font-size: 0.85rem !important;
+    line-height: 1.35 !important;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    border-radius: 8px !important;
+  }
+
+  .form-input,
+  .form-select {
+    height: 48px !important;
+    min-height: 48px !important;
+    padding: 0 12px !important;
+  }
+
+  .form-select {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  input[type='date'].form-input {
+    -webkit-appearance: none;
+    appearance: none;
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .form-textarea {
+    padding: 12px !important;
+    min-height: 110px !important;
+  }
+
+  .field-error-msg {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 0.8rem !important;
+    line-height: 1.42 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .field-error-msg svg {
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+  }
+
+  .field-error-msg span {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .form-submission-notice {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 12px 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    font-size: 0.83rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .form-submission-notice svg {
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+  }
+
+  .form-submission-notice p {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .submission-status-banner {
+    padding: 14px !important;
+    gap: 10px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .submission-status-banner > div {
+    flex: 1 1 0% !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* 4. Mobile Button Standardization (100% Width, 60px Height, 14px Gap) */
   .hero-cta-group,
   .section-header-actions,
   .vehicle-card-actions,
@@ -1106,28 +1576,33 @@ textarea {
   .submission-result-actions,
   .wa-modal-footer,
   .service-card-footer,
-  .contact-method-action {
+  .contact-method-action,
+  .form-submit-row {
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
     gap: 14px !important;
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     box-sizing: border-box !important;
   }
 
   .map-card-overlay {
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
   }
 
   .google-profile-card-footer {
     flex-direction: column !important;
     align-items: stretch !important;
     gap: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
 
-  /* Ensure every button across all sections on mobile has identical 100% width and 60px height */
   .btn,
   .btn-sm,
   .btn-lg,
@@ -1146,41 +1621,49 @@ textarea {
   .hero-whatsapp-quick,
   .wa-modal-footer .wa-modal-action-btn {
     width: 100% !important;
-    min-width: 100% !important;
+    min-width: 0 !important;
     max-width: 100% !important;
     height: 60px !important;
     min-height: 60px !important;
     max-height: 60px !important;
-    padding: 0 16px !important;
+    padding: 0 14px !important;
     border-radius: 8px !important;
     box-sizing: border-box !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 10px !important;
+    gap: 8px !important;
     font-family: var(--font-display) !important;
-    font-size: clamp(13.5px, 3.8vw, 15px) !important;
+    font-size: clamp(13px, 3.7vw, 15px) !important;
     font-weight: 600 !important;
-    line-height: 1 !important;
+    line-height: 1.15 !important;
     letter-spacing: 0.01em !important;
     white-space: nowrap !important;
     overflow: hidden !important;
-    text-overflow: clip !important;
+    text-overflow: ellipsis !important;
     text-align: center !important;
     margin: 0 !important;
-    flex-shrink: 0 !important;
+    flex-shrink: 1 !important;
   }
 
-  /* Slightly scale font-size on extra-long single CTA labels so they never wrap or clip at 360px */
+  .btn > span,
+  .showroom-visit-action > span,
+  .footer-social-button > span {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  /* Scale font-size on extra-long single CTA labels so they fit cleanly at 360px */
   .dealership-form .btn,
   .map-card-overlay .btn,
   .wa-modal-footer .wa-modal-action-btn {
-    padding: 0 12px !important;
-    gap: 8px !important;
-    font-size: clamp(11.5px, 3.3vw, 14.5px) !important;
+    padding: 0 10px !important;
+    gap: 6px !important;
+    font-size: clamp(11.5px, 3.2vw, 14.5px) !important;
   }
 
-  /* Keep icons consistently sized and centered inside 60px mobile buttons */
   .btn svg,
   .showroom-visit-action svg,
   .footer-social-button svg,
@@ -1189,5 +1672,27 @@ textarea {
     width: 18px !important;
     height: 18px !important;
     flex-shrink: 0 !important;
+  }
+
+  /* 5. Floating WhatsApp Button Mobile Positioning & Overlap Prevention */
+  .floating-wa-container {
+    right: 16px !important;
+    bottom: 16px !important;
+    z-index: 90 !important;
+  }
+
+  .floating-wa-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .floating-wa-icon {
+    width: 27px !important;
+    height: 27px !important;
+  }
+
+  /* Provide bottom scroll clearance so floating WhatsApp icon never blocks buttons or form controls */
+  .site-footer {
+    padding-bottom: 5.5rem !important;
   }
 }
