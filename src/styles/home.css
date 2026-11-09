@@ -559,7 +559,7 @@
 }
 
 /* ==========================================================================
-   GOOGLE REVIEWS SECTION (PLACES API NEW — ChIJdYLqtemRiTkRUi6ZhdHVgh0)
+   GOOGLE BUSINESS PROFILE SECTION
    ========================================================================== */
 
 .google-header-cta-group {
@@ -574,398 +574,33 @@
   display: inline-block;
 }
 
-/* Loading Skeletons */
-.google-reviews-loading {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-@keyframes googlePulse {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.google-summary-skeleton {
-  height: 108px;
-  border-radius: var(--radius-md);
-  background-color: #E5E7EB;
-  animation: googlePulse 1.5s ease-in-out infinite;
-}
-
-.google-card-skeleton {
-  height: 230px;
-  border-radius: var(--radius-md);
-  background-color: #E5E7EB;
-  animation: googlePulse 1.5s ease-in-out infinite;
-}
-
-/* Live Aggregate Summary Bar */
-.google-live-summary-bar {
-  background-color: var(--white);
-  border: 1px solid var(--border-gray);
-  border-left: 4px solid var(--honda-red);
-  border-radius: var(--radius-md);
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 1.85rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.35rem;
-  box-shadow: var(--shadow-sm);
-}
-
-@media (min-width: 900px) {
-  .google-live-summary-bar {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.google-summary-left {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.75rem;
-}
-
-.google-brand-pill {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding-right: 1.5rem;
-  border-right: 1px solid var(--border-gray);
-}
-
-.google-summary-biz-name {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--charcoal);
-  line-height: 1.15;
-}
-
-.google-summary-location {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-size: 0.78rem;
-  color: var(--muted-gray);
-  margin-top: 0.15rem;
-}
-
-.google-rating-score-block {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.google-big-rating {
-  font-family: var(--font-display);
-  font-size: 2.35rem;
-  font-weight: 800;
-  color: var(--charcoal);
-  line-height: 1;
-}
-
-.google-stars-and-count {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.google-stars-row {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.15rem;
-}
-
-.google-total-reviews-count {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--muted-gray);
-}
-
-.google-summary-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-@media (min-width: 900px) {
-  .google-summary-right {
-    align-items: flex-end;
-  }
-}
-
-.google-live-verified-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #15803D;
-  background-color: #F0FDF4;
-  border: 1px solid #BBF7D0;
-  padding: 0.22rem 0.6rem;
-  border-radius: 999px;
-}
-
-.google-summary-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-/* Review Cards Grid */
-.google-reviews-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-@media (min-width: 680px) {
-  .google-reviews-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1080px) {
-  .google-reviews-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.google-review-card {
-  background-color: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  box-shadow: var(--shadow-xs);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.google-review-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-}
-
-.google-review-card-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.85rem;
-}
-
-.reviewer-identity {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-width: 0;
-}
-
-.reviewer-avatar-img {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid var(--border-gray);
-  flex-shrink: 0;
-}
-
-.reviewer-avatar-fallback {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--charcoal) 0%, #374151 100%);
-  color: var(--white);
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.92rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.reviewer-meta {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.reviewer-name-link,
-.reviewer-name-text {
-  font-family: var(--font-display);
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: var(--charcoal);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.reviewer-name-link:hover {
-  color: var(--honda-red);
-  text-decoration: underline;
-}
-
-.review-publish-date {
-  font-size: 0.76rem;
-  color: var(--muted-gray);
-}
-
-.google-review-stars-wrap {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 0.75rem;
-}
-
-.review-numeric-badge {
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--charcoal);
-}
-
-.google-review-body {
-  flex: 1;
-  margin-bottom: 1rem;
-}
-
-.google-review-text {
-  font-size: 0.92rem;
-  color: var(--body-text);
-  line-height: 1.62;
-  white-space: pre-line;
-}
-
-.review-expand-btn {
-  margin-top: 0.4rem;
-  background: transparent;
-  border: none;
-  color: var(--honda-red);
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 700;
-  cursor: pointer;
-  padding: 0;
-}
-
-.review-expand-btn:hover {
-  text-decoration: underline;
-}
-
-.google-review-no-text {
-  font-size: 0.86rem;
-  color: var(--muted-gray);
-  margin-bottom: 1rem;
-  flex: 1;
-}
-
-.google-review-card-footer {
-  margin-top: auto;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--light-gray);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.76rem;
-  color: var(--muted-gray);
-}
-
-.review-source-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  font-weight: 600;
-  color: var(--charcoal);
-}
-
-.review-source-link:hover {
-  color: var(--honda-red);
-}
-
-.google-empty-reviews-card {
-  background-color: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  text-align: center;
-  color: var(--muted-gray);
-}
-
-/* Attribution Footer */
-.google-attribution-footer {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-gray);
-}
-
-.powered-by-google-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--charcoal);
-}
-
-.google-attribution-note {
-  font-size: 0.78rem;
-  color: var(--muted-gray);
-}
-
-.google-attribution-note code {
-  background-color: var(--surface-gray);
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-}
-
-/* Configuration / Unconfigured API Key Card */
-.google-config-state-card {
+.google-profile-card {
   background-color: var(--white);
   border: 1px solid var(--border-gray);
   border-top: 4px solid var(--honda-red);
   border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
-}
-
-.google-config-top {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.35rem;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.google-config-brand-row {
+.google-profile-card-main {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.google-profile-brand-row {
+  display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
-.google-config-icon-wrap {
-  width: 52px;
-  height: 52px;
+.google-profile-icon-wrap {
+  width: 56px;
+  height: 56px;
   border-radius: var(--radius-md);
   background-color: var(--light-gray);
   border: 1px solid var(--border-gray);
@@ -975,109 +610,44 @@
   flex-shrink: 0;
 }
 
-.google-config-badges {
+.google-profile-info {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
-.place-id-pill {
-  font-size: 0.75rem;
-  font-weight: 600;
-  background-color: var(--light-gray);
-  border: 1px solid var(--border-gray);
-  color: var(--charcoal);
-  padding: 0.15rem 0.55rem;
-  border-radius: 4px;
-}
-
-.place-id-pill code {
-  font-weight: 700;
-  color: var(--honda-red);
-}
-
-.api-status-pill {
+.google-profile-badge {
   font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 700;
-  background-color: #FFFBEB;
-  border: 1px solid #FDE68A;
-  color: #92400E;
-  padding: 0.15rem 0.55rem;
-  border-radius: 4px;
+  letter-spacing: 0.08em;
+  color: var(--honda-red);
 }
 
-.google-config-title {
+.google-profile-title {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--charcoal);
+  line-height: 1.2;
 }
 
-.google-setup-instructions-box {
-  background-color: #FAFAFB;
-  border: 1px solid var(--border-gray);
-  border-radius: var(--radius-sm);
-  padding: 1.25rem 1.35rem;
-  margin-bottom: 1.5rem;
-}
-
-.setup-box-header {
-  display: flex;
+.google-profile-location {
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-display);
-  font-size: 0.96rem;
-  color: var(--charcoal);
-  margin-bottom: 0.45rem;
-}
-
-.setup-box-desc {
+  gap: 0.35rem;
   font-size: 0.88rem;
   color: var(--muted-gray);
-  line-height: 1.6;
-  margin-bottom: 0.85rem;
 }
 
-.setup-box-desc code,
-.setup-steps-compact code {
-  background-color: var(--surface-gray);
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-  font-size: 0.82rem;
-  color: var(--charcoal);
-}
-
-.setup-steps-compact {
-  padding-left: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  font-size: 0.86rem;
+.google-profile-description {
+  font-size: 0.95rem;
   color: var(--body-text);
+  line-height: 1.65;
+  max-width: 780px;
 }
 
-.google-api-error-alert {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 1rem 1.2rem;
-  background-color: #FEF2F2;
-  border: 1px solid #FECACA;
-  border-radius: var(--radius-sm);
-  color: #991B1B;
-  font-size: 0.88rem;
-  margin-bottom: 1.5rem;
-}
-
-.google-alert-icon {
-  color: var(--honda-red);
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-}
-
-.google-config-footer-actions {
+.google-profile-card-footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1087,10 +657,40 @@
   border-top: 1px solid var(--border-gray);
 }
 
-.google-direct-cta-row {
+.google-profile-ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  transition: color var(--transition-fast);
+}
+
+.google-profile-ext-link:hover {
+  color: var(--honda-red);
+}
+
+.google-profile-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .google-profile-card {
+    padding: 1.35rem;
+  }
+
+  .google-profile-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .google-profile-actions .btn {
+    width: 100%;
+  }
 }
 
 /* Location Showcase Grid */

@@ -11,6 +11,9 @@ import WhatsAppIcon from './WhatsAppIcon';
 import { WHATSAPP_MESSAGES } from '../config/dealership';
 import { useEnquiryModal } from '../context/EnquiryModalContext';
 
+const BASE_URL =
+  (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+
 export default function VehicleCard({ vehicle, index = 0 }) {
   const [imgSrc, setImgSrc] = useState(vehicle.image);
   const shouldReduceMotion = useReducedMotion();
@@ -21,8 +24,8 @@ export default function VehicleCard({ vehicle, index = 0 }) {
       setImgSrc(
         vehicle.fallbackSvg ||
           (vehicle.category === 'Scooter'
-            ? '/images/vehicles/fallback-scooter.svg'
-            : '/images/vehicles/fallback-motorcycle.svg')
+            ? `${BASE_URL}images/vehicles/fallback-scooter.svg`
+            : `${BASE_URL}images/vehicles/fallback-motorcycle.svg`)
       );
     }
   };

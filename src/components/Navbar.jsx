@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import HondaWingLogo from './HondaWingLogo';
 import {
   DEALERSHIP_CONFIG,
   WHATSAPP_MESSAGES,
@@ -105,9 +106,7 @@ export default function Navbar() {
         <div className="container navbar-container">
           {/* Dealership Brand Logo */}
           <Link to="/" className="brand-logo" aria-label="Ankan Honda Batauli Home">
-            <div className="brand-emblem" aria-hidden="true">
-              <span className="brand-wing">H</span>
-            </div>
+            <HondaWingLogo className="honda-wing-mark" />
             <div className="brand-text-group">
               <span className="brand-title">
                 ANKAN <span className="brand-honda">HONDA</span>
@@ -183,12 +182,20 @@ export default function Navbar() {
               transition={{ type: 'tween', duration: shouldReduceMotion ? 0 : 0.26 }}
             >
               <div className="mobile-drawer-header">
-                <div className="brand-text-group">
-                  <span className="brand-title">
-                    ANKAN <span className="brand-honda">HONDA</span>
-                  </span>
-                  <span className="brand-subtitle">BATAULI SHOWROOM</span>
-                </div>
+                <Link
+                  to="/"
+                  className="brand-logo"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Ankan Honda Batauli Home"
+                >
+                  <HondaWingLogo className="honda-wing-mark honda-wing-mobile" />
+                  <div className="brand-text-group">
+                    <span className="brand-title">
+                      ANKAN <span className="brand-honda">HONDA</span>
+                    </span>
+                    <span className="brand-subtitle">BATAULI SHOWROOM</span>
+                  </div>
+                </Link>
                 <button
                   type="button"
                   className="mobile-drawer-close"

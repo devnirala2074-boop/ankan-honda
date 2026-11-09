@@ -8,6 +8,7 @@ import {
   Instagram,
 } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
+import HondaWingLogo from './HondaWingLogo';
 import {
   DEALERSHIP_CONFIG,
   isPhoneConfigured,
@@ -37,9 +38,7 @@ export default function Footer() {
           {/* Column 1: Dealership Brand & Overview */}
           <div className="footer-col footer-brand-col">
             <Link to="/" className="footer-brand-logo">
-              <div className="brand-emblem" aria-hidden="true">
-                <span className="brand-wing">H</span>
-              </div>
+              <HondaWingLogo className="honda-wing-mark honda-wing-footer" />
               <div className="brand-text-group">
                 <span className="brand-title footer-brand-title">
                   ANKAN <span className="brand-honda">HONDA</span>

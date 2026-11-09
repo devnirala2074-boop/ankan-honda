@@ -275,7 +275,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* H. Authentic Google Reviews Section (Places API New — Place ID: ChIJdYLqtemRiTkRUi6ZhdHVgh0) */}
+      {/* H. Official Google Business Profile Section */}
       <GoogleReviewsSection />
 
       {/* I. Location Section */}

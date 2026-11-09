@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+} from 'react';
 import {
   DEALERSHIP_CONFIG,
   buildWhatsAppLink,
@@ -25,15 +32,45 @@ export function EnquiryModalProvider({ children }) {
     whatsappData: null,
   });
   const [copied, setCopied] = useState(false);
+  const modalBodyRef = useRef(null);
+
+  const closeModal = useCallback(() => {
+    setModalState((prev) => ({ ...prev, isOpen: false }));
+    setCopied(false);
+  }, []);
+
+  // Prevent background page scrolling while modal is open & always start scroll at 0 (top)
+  useEffect(() => {
+    if (!modalState.isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    if (modalBodyRef.current) {
+      modalBodyRef.current.scrollTop = 0;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [modalState.isOpen, modalState.title, modalState.message, closeModal]);
 
   const triggerWhatsAppEnquiry = useCallback(
-    ({ title = 'WhatsApp Showroom Enquiry', subtitle = '', messageText }) => {
+    ({ title = 'WhatsApp Showroom Enquiry', subtitle = '', messageText, skipAutoOpen = false }) => {
       const text = messageText || WHATSAPP_MESSAGES.generalEnquiry();
       const whatsappData = buildWhatsAppLink(text);
 
       // If a verified dealership number is configured, open WhatsApp directly
       // and also display the confirmation instructions modal.
-      if (whatsappData.isConfigured) {
+      if (whatsappData.isConfigured && !skipAutoOpen) {
         window.open(whatsappData.url, '_blank', 'noopener,noreferrer');
       }
 
@@ -50,11 +87,6 @@ export function EnquiryModalProvider({ children }) {
     },
     []
   );
-
-  const closeModal = useCallback(() => {
-    setModalState((prev) => ({ ...prev, isOpen: false }));
-    setCopied(false);
-  }, []);
 
   const handleCopyMessage = useCallback(async () => {
     try {
@@ -91,8 +123,10 @@ export function EnquiryModalProvider({ children }) {
           <div className="wa-modal-card">
             <div className="wa-modal-header">
               <div className="wa-modal-badge">
-                <WhatsAppIcon size={18} />
-                <span>ANKAN HONDA • WHATSAPP ENQUIRY</span>
+                <WhatsAppIcon size={16} className="wa-modal-badge-icon" />
+                <span className="wa-modal-badge-text">
+                  ANKAN HONDA • WHATSAPP ENQUIRY
+                </span>
               </div>
               <button
                 type="button"
@@ -104,7 +138,7 @@ export function EnquiryModalProvider({ children }) {
               </button>
             </div>
 
-            <div className="wa-modal-body">
+            <div className="wa-modal-body" ref={modalBodyRef}>
               <h3 id="wa-modal-title" className="wa-modal-title">
                 {modalState.title}
               </h3>
@@ -172,22 +206,24 @@ export function EnquiryModalProvider({ children }) {
                 href={modalState.whatsappData?.url || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-whatsapp"
+                className="btn btn-whatsapp wa-modal-action-btn"
               >
                 <WhatsAppIcon size={18} />
-                {modalState.whatsappData?.isConfigured
-                  ? 'Continue to Showroom WhatsApp'
-                  : 'Open WhatsApp with Prefilled Text'}
+                <span>
+                  {modalState.whatsappData?.isConfigured
+                    ? 'Continue to Showroom WhatsApp'
+                    : 'Open WhatsApp with Prefilled Text'}
+                </span>
                 <ExternalLink size={15} />
               </a>
               <a
                 href={DEALERSHIP_CONFIG.maps.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-outline-dark"
+                className="btn btn-outline-dark wa-modal-action-btn"
               >
                 <MapPin size={17} />
-                Showroom Directions
+                <span>Showroom Directions</span>
               </a>
             </div>
           </div>

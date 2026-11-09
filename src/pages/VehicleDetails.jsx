@@ -19,6 +19,9 @@ import { DEALERSHIP_CONFIG, WHATSAPP_MESSAGES } from '../config/dealership';
 import { useDocumentMeta } from '../hooks/useDocumentMeta';
 import { useEnquiryModal } from '../context/EnquiryModalContext';
 
+const BASE_URL =
+  (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+
 export default function VehicleDetails() {
   const { slug } = useParams();
   const vehicle = getVehicleBySlug(slug);
@@ -76,8 +79,8 @@ export default function VehicleDetails() {
       setImgSrc(
         vehicle.fallbackSvg ||
           (vehicle.category === 'Scooter'
-            ? '/images/vehicles/fallback-scooter.svg'
-            : '/images/vehicles/fallback-motorcycle.svg')
+            ? `${BASE_URL}images/vehicles/fallback-scooter.svg`
+            : `${BASE_URL}images/vehicles/fallback-motorcycle.svg`)
       );
     }
   };

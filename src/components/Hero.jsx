@@ -11,8 +11,13 @@ import WhatsAppIcon from './WhatsAppIcon';
 import { DEALERSHIP_CONFIG, WHATSAPP_MESSAGES } from '../config/dealership';
 import { useEnquiryModal } from '../context/EnquiryModalContext';
 
+const BASE_URL =
+  (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+
 export default function Hero() {
-  const [heroImgSrc, setHeroImgSrc] = useState('/images/vehicles/hero-motorcycle.png');
+  const [heroImgSrc, setHeroImgSrc] = useState(
+    `${BASE_URL}images/vehicles/hero-motorcycle.png`
+  );
   const shouldReduceMotion = useReducedMotion();
   const { triggerWhatsAppEnquiry } = useEnquiryModal();
 
@@ -107,7 +112,7 @@ export default function Hero() {
               src={heroImgSrc}
               alt="Honda commuter-sport motorcycle showcased in studio lighting"
               className="hero-vehicle-img"
-              onError={() => setHeroImgSrc('/images/vehicles/fallback-hero.svg')}
+              onError={() => setHeroImgSrc(`${BASE_URL}images/vehicles/fallback-hero.svg`)}
             />
 
             <div className="hero-caption-card">

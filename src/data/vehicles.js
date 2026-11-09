@@ -8,6 +8,9 @@
  * are marked for direct confirmation with Ankan Honda.
  */
 
+const BASE_URL =
+  (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+
 export const VEHICLE_CATEGORIES = [
   { id: 'all', label: 'All Two-Wheelers' },
   { id: 'Motorcycle', label: 'Motorcycles' },
@@ -28,8 +31,8 @@ export const VEHICLES = [
     availabilityNote: 'Confirm current stock & variants with Ankan Honda, Batauli',
     featured: true,
     popularRank: 1,
-    image: '/images/vehicles/honda-activa.png',
-    fallbackSvg: '/images/vehicles/fallback-scooter.svg',
+    image: `${BASE_URL}images/vehicles/honda-activa.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-scooter.svg`,
     shortDescription:
       'Honda’s iconic family scooter designed for dependable daily commuting, comfortable ergonomics, and refined automatic riding in town and rural roads.',
     overview:
@@ -70,8 +73,8 @@ export const VEHICLES = [
     availabilityNote: 'Confirm Drum / Disc variant availability with Ankan Honda, Batauli',
     featured: true,
     popularRank: 2,
-    image: '/images/vehicles/honda-sp125.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-sp125.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     shortDescription:
       'A sharp, contemporary 125cc commuter motorcycle blending athletic tank styling, a digital instrument console, and refined 5-speed performance.',
     overview:
@@ -113,8 +116,8 @@ export const VEHICLES = [
     availabilityNote: 'Confirm Drum / Disc variant availability with Ankan Honda, Batauli',
     featured: true,
     popularRank: 3,
-    image: '/images/vehicles/honda-shine125.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-shine125.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     shortDescription:
       'India’s benchmark executive 125cc motorcycle known for timeless styling, plush seating comfort, and dependable everyday commuting.',
     overview:
@@ -155,8 +158,8 @@ export const VEHICLES = [
     availabilityNote: 'Confirm current availability with Ankan Honda, Batauli',
     featured: true,
     popularRank: 4,
-    image: '/images/vehicles/honda-unicorn.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-unicorn.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     shortDescription:
       'A mature 160cc motorcycle offering monoshock rear suspension, strong low-end torque, and highway-ready ride comfort.',
     overview:
@@ -197,8 +200,8 @@ export const VEHICLES = [
     availabilityNote: 'Confirm current stock & variants with Ankan Honda, Batauli',
     featured: true,
     popularRank: 5,
-    image: '/images/vehicles/honda-dio.png',
-    fallbackSvg: '/images/vehicles/fallback-scooter.svg',
+    image: `${BASE_URL}images/vehicles/honda-dio.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-scooter.svg`,
     shortDescription:
       'Aggressive moto-scooter styling with an apron-mounted headlamp, vibrant dual-tone graphics, and nimble automatic handling.',
     overview:
@@ -239,8 +242,8 @@ export const VEHICLES = [
     availabilityNote: 'Confirm current availability with Ankan Honda, Batauli',
     featured: false,
     popularRank: 6,
-    image: '/images/vehicles/honda-shine100.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-shine100.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     shortDescription:
       'Practical, lightweight 100cc commuter motorcycle designed for easy handling, low seat height, and everyday utility.',
     overview:
@@ -281,8 +284,8 @@ export const VEHICLES = [
     availabilityNote: 'Confirm variant availability with Ankan Honda, Batauli',
     featured: false,
     popularRank: 7,
-    image: '/images/vehicles/honda-activa.png',
-    fallbackSvg: '/images/vehicles/fallback-scooter.svg',
+    image: `${BASE_URL}images/vehicles/honda-activa.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-scooter.svg`,
     shortDescription:
       'Step-up 125cc family scooter offering stronger pickup, premium chrome accents, and optional front disc brake variants.',
     overview:
@@ -323,8 +326,8 @@ export const VEHICLES = [
     availabilityNote: 'Confirm order / showroom availability with Ankan Honda, Batauli',
     featured: false,
     popularRank: 8,
-    image: '/images/vehicles/honda-hornet.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-hornet.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     shortDescription:
       'Muscular street-naked motorcycle equipped with golden upside-down (USD) front forks, aggressive tank shrouds, and sporty dynamics.',
     overview:

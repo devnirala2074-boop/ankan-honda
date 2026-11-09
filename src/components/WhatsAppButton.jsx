@@ -1,37 +1,72 @@
 import React from 'react';
 import WhatsAppIcon from './WhatsAppIcon';
-import { WHATSAPP_MESSAGES } from '../config/dealership';
-import { useEnquiryModal } from '../context/EnquiryModalContext';
+import { DEALERSHIP_CONFIG } from '../config/dealership';
+
+const FLOATING_ENQUIRY_MESSAGE = `Hello Ankan Honda (Batauli),
+
+I visited your website and would like to enquire about Honda two-wheelers, vehicle availability, pricing, and test ride options.
+
+Please share the details. Thank you.`;
 
 /**
- * Floating WhatsApp Button (fixed bottom-right) for quick customer enquiries
- * across all pages.
+ * Detects whether the user is accessing the website from a mobile device
+ * (Android, iPhone, iPad, iPod, or mobile userAgentData).
+ */
+function isMobileDevice() {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+    return false;
+  }
+  if (navigator.userAgentData && typeof navigator.userAgentData.mobile === 'boolean') {
+    return navigator.userAgentData.mobile;
+  }
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent || ''
+  );
+}
+
+/**
+ * Builds the official https://wa.me click-to-chat URL using the existing
+ * configured dealership WhatsApp number and URL-encoded prefilled message.
+ */
+function getDirectWhatsAppUrl() {
+  const rawNumber = (DEALERSHIP_CONFIG.contact.whatsappNumber || '').replace(/\D/g, '');
+  const encodedText = encodeURIComponent(FLOATING_ENQUIRY_MESSAGE);
+
+  if (rawNumber.length >= 10) {
+    return `https://wa.me/${rawNumber}?text=${encodedText}`;
+  }
+  return `https://wa.me/?text=${encodedText}`;
+}
+
+/**
+ * Compact circular Floating WhatsApp Button (fixed bottom-right).
+ * Directly opens WhatsApp (app on mobile, WhatsApp Web/Desktop on desktop)
+ * with the prefilled dealership enquiry message and no intermediate modal.
  */
 export default function WhatsAppButton() {
-  const { triggerWhatsAppEnquiry } = useEnquiryModal();
+  const whatsappUrl = getDirectWhatsAppUrl();
+  const isMobile = isMobileDevice();
 
-  const handleClick = () => {
-    triggerWhatsAppEnquiry({
-      title: 'Quick WhatsApp Enquiry — Ankan Honda',
-      subtitle:
-        'Ask about Honda motorcycles, scooters, test ride availability, or showroom assistance in Batauli.',
-      messageText: WHATSAPP_MESSAGES.generalEnquiry(),
-    });
+  const handleClick = (event) => {
+    const currentUrl = getDirectWhatsAppUrl();
+    if (isMobileDevice()) {
+      event.preventDefault();
+      window.location.href = currentUrl;
+    }
   };
 
   return (
     <div className="floating-wa-container">
-      <button
-        type="button"
+      <a
+        href={whatsappUrl}
+        target={isMobile ? '_self' : '_blank'}
+        rel={isMobile ? undefined : 'noopener noreferrer'}
         className="floating-wa-btn"
         onClick={handleClick}
-        aria-label="Enquire with Ankan Honda on WhatsApp"
-        title="Enquire on WhatsApp"
+        aria-label="Chat with Ankan Honda on WhatsApp"
       >
-        <span className="floating-wa-pulse" aria-hidden="true" />
-        <WhatsAppIcon size={24} className="floating-wa-icon" />
-        <span className="floating-wa-label">Enquire on WhatsApp</span>
-      </button>
+        <WhatsAppIcon size={32} className="floating-wa-icon" />
+      </a>
     </div>
   );
 }

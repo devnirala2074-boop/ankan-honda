@@ -7,6 +7,9 @@
  * until real showroom photographs are supplied, never fabricated).
  */
 
+const BASE_URL =
+  (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+
 export const GALLERY_CATEGORIES = [
   { id: 'all', label: 'All Visuals' },
   { id: 'motorcycles', label: 'Motorcycle Photography' },
@@ -22,8 +25,8 @@ export const GALLERY_ITEMS = [
     category: 'motorcycles',
     categoryLabel: 'Product Studio Photography',
     sourceBadge: 'Illustrative Product Visual',
-    image: '/images/vehicles/honda-sp125.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-sp125.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     alt: 'Studio profile of Honda SP 125 motorcycle in metallic red with black alloy wheels and front disc brake',
     caption:
       'Sculpted tank shrouds, modern graphics, and 5-speed commuter ergonomics on the Honda SP 125. Confirm variant and colour availability at Ankan Honda, Batauli.',
@@ -35,8 +38,8 @@ export const GALLERY_ITEMS = [
     category: 'scooters',
     categoryLabel: 'Product Studio Photography',
     sourceBadge: 'Illustrative Product Visual',
-    image: '/images/vehicles/honda-activa.png',
-    fallbackSvg: '/images/vehicles/fallback-scooter.svg',
+    image: `${BASE_URL}images/vehicles/honda-activa.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-scooter.svg`,
     alt: 'Studio profile of Honda Activa family scooter with chrome front garnish and telescopic front suspension',
     caption:
       'Clean, timeless family scooter silhouette with comfortable floorboard space and automatic V-Matic transmission.',
@@ -48,8 +51,8 @@ export const GALLERY_ITEMS = [
     category: 'motorcycles',
     categoryLabel: 'Product Studio Photography',
     sourceBadge: 'Illustrative Product Visual',
-    image: '/images/vehicles/honda-hornet.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-hornet.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     alt: 'Studio profile of Honda Hornet 2.0 streetfighter motorcycle featuring golden USD front forks and petal disc brakes',
     caption:
       'Aggressive street-naked styling featuring golden upside-down (USD) front forks and compact mass-forward proportions.',
@@ -61,8 +64,8 @@ export const GALLERY_ITEMS = [
     category: 'motorcycles',
     categoryLabel: 'Product Studio Photography',
     sourceBadge: 'Illustrative Product Visual',
-    image: '/images/vehicles/honda-shine125.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-shine125.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     alt: 'Studio profile of Honda Shine 125 commuter motorcycle in black with red graphics and chrome exhaust shield',
     caption:
       'Refined 125cc executive commuter design with long single-piece seating and balanced upright ergonomics.',
@@ -74,8 +77,8 @@ export const GALLERY_ITEMS = [
     category: 'scooters',
     categoryLabel: 'Product Studio Photography',
     sourceBadge: 'Illustrative Product Visual',
-    image: '/images/vehicles/honda-dio.png',
-    fallbackSvg: '/images/vehicles/fallback-scooter.svg',
+    image: `${BASE_URL}images/vehicles/honda-dio.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-scooter.svg`,
     alt: 'Studio profile of Honda Dio moto-scooter with dual-tone red and charcoal bodywork and apron headlamp',
     caption:
       'Bold apron-mounted headlamp architecture and sharp dual-tone body graphics on the Honda Dio.',
@@ -87,8 +90,8 @@ export const GALLERY_ITEMS = [
     category: 'motorcycles',
     categoryLabel: 'Product Studio Photography',
     sourceBadge: 'Illustrative Product Visual',
-    image: '/images/vehicles/honda-unicorn.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-unicorn.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     alt: 'Studio profile of Honda Unicorn 160cc motorcycle in pearl black with signature chrome tank garnish',
     caption:
       'Mature 160cc commuter silhouette featuring a signature chrome fuel tank accent, front ABS disc, and rear monoshock.',
@@ -100,8 +103,8 @@ export const GALLERY_ITEMS = [
     category: 'closeups',
     categoryLabel: 'Design & Engineering Highlight',
     sourceBadge: 'Illustrative Studio Visual',
-    image: '/images/vehicles/hero-motorcycle.png',
-    fallbackSvg: '/images/vehicles/fallback-hero.svg',
+    image: `${BASE_URL}images/vehicles/hero-motorcycle.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-hero.svg`,
     alt: 'Dark studio close-up highlighting red fuel tank contours and LED headlamp illumination on a Honda motorcycle',
     caption:
       'Modern Honda two-wheeler design emphasizes sharp tank lines, aerodynamic shrouds, and clear illumination.',
@@ -113,8 +116,8 @@ export const GALLERY_ITEMS = [
     category: 'motorcycles',
     categoryLabel: 'Product Studio Photography',
     sourceBadge: 'Illustrative Product Visual',
-    image: '/images/vehicles/honda-shine100.png',
-    fallbackSvg: '/images/vehicles/fallback-motorcycle.svg',
+    image: `${BASE_URL}images/vehicles/honda-shine100.png`,
+    fallbackSvg: `${BASE_URL}images/vehicles/fallback-motorcycle.svg`,
     alt: 'Studio profile of Honda Shine 100 commuter motorcycle with flat seat and black alloy wheels',
     caption:
       'Lightweight, practical 100cc commuter geometry engineered for everyday ease of riding.',

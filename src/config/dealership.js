@@ -126,18 +126,17 @@ export function buildWhatsAppLink(messageText) {
     return {
       isConfigured: true,
       url: `https://wa.me/${rawNumber}?text=${encodedMessage}`,
-      shareUrl: `https://api.whatsapp.com/send?phone=${rawNumber}&text=${encodedMessage}`,
+      shareUrl: `https://wa.me/${rawNumber}?text=${encodedMessage}`,
       message: cleanMessage,
     };
   }
 
   // Fallback when dealership WhatsApp number is not yet configured:
-  // Provide a general WhatsApp share URL (lets user pick recipient in WhatsApp)
-  // plus clear indication that the showroom number is pending configuration.
+  // Use official wa.me click-to-chat URL with prefilled encoded message.
   return {
     isConfigured: false,
-    url: `https://api.whatsapp.com/send?text=${encodedMessage}`,
-    shareUrl: `https://api.whatsapp.com/send?text=${encodedMessage}`,
+    url: `https://wa.me/?text=${encodedMessage}`,
+    shareUrl: `https://wa.me/?text=${encodedMessage}`,
     message: cleanMessage,
   };
 }
@@ -147,7 +146,7 @@ export function buildWhatsAppLink(messageText) {
  */
 export const WHATSAPP_MESSAGES = {
   generalEnquiry: () =>
-    `Hello Ankan Honda (Batauli),\n\nI visited your website and would like to enquire about Honda two-wheelers and showroom assistance. Please share details at your convenience.`,
+    `Hello Ankan Honda (Batauli),\n\nI visited your website and would like to enquire about Honda two-wheelers, vehicle availability, pricing, and test ride options.\n\nPlease share the details. Thank you.`,
 
   vehicleEnquiry: (vehicleName, category = '') =>
     `Hello Ankan Honda (Batauli),\n\nI am interested in the *${vehicleName}*${category ? ` (${category})` : ''}.\n\nCould you please confirm:\n1. Current availability at the Batauli showroom\n2. Latest Ex-Showroom & On-Road price\n3. Available colour variants\n\nThank you.`,

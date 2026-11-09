@@ -1,5 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="12" fill="#CC0000"/>
-  <path d="M18 46L27.5 18H36.5L46 46H39.2L37.3 39.8H26.7L24.8 46H18ZM28.5 34.2H35.5L32 22.8L28.5 34.2Z" fill="#FFFFFF"/>
-  <rect x="14" y="49" width="36" height="3" rx="1.5" fill="#FFFFFF" fill-opacity="0.85"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 88" fill="none">
+  <title>Honda Wing Emblem</title>
+  <!-- Leading Wing Arch & Top Primary Feather -->
+  <path
+    fill="#CC0000"
+    d="M6.2 81.5C2.4 71.8 2.2 58.6 7.8 45.4C14.8 28.8 31.6 16.5 56.4 11.2L117.5 3.5L112.8 14.2L45.2 24.4C29.8 27.2 19.6 36.8 15.2 50.6C12.2 60.1 12.6 70.8 15.4 79.8L6.2 81.5Z"
+  />
+  <!-- Feather 2 -->
+  <path
+    fill="#CC0000"
+    d="M36.8 30.2L109.4 19.4L105.1 28.8L31.4 39.2C32.8 35.8 34.6 32.8 36.8 30.2Z"
+  />
+  <!-- Feather 3 -->
+  <path
+    fill="#CC0000"
+    d="M28.6 43.4L100.8 33.4L96.6 42.4L24.5 51.8C25.6 48.8 27.0 46.0 28.6 43.4Z"
+  />
+  <!-- Feather 4 -->
+  <path
+    fill="#CC0000"
+    d="M22.4 55.6L92.2 46.8L88.1 55.2L19.6 63.4C20.3 60.7 21.2 58.1 22.4 55.6Z"
+  />
+  <!-- Feather 5 -->
+  <path
+    fill="#CC0000"
+    d="M18.2 66.8L83.5 59.4L79.6 67.2L16.8 74.0C17.1 71.6 17.6 69.2 18.2 66.8Z"
+  />
+  <!-- Feather 6 -->
+  <path
+    fill="#CC0000"
+    d="M15.8 76.8L74.8 70.8L71.2 78.0L15.4 83.2C15.4 81.1 15.5 78.9 15.8 76.8Z"
+  />
 </svg>

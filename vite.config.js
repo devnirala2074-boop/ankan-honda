@@ -1,55 +1,31 @@
-import { defineConfig, loadEnv } from 'vite';
+import fs from 'node:fs';
+import path from 'node:path';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { fetchGooglePlaceReviews } from './api/google-reviews.js';
 
 /**
- * Vite Dev & Preview Middleware for `/api/google-reviews`
- * Keeps `GOOGLE_PLACES_API_KEY` on the server side during local development
- * and preview without exposing it in client bundle code.
+ * Vite Build Plugin to copy dist/index.html to dist/404.html so static
+ * subpath hosts serve the SPA entrypoint on browser refresh of nested routes.
  */
-function googlePlacesApiMiddleware(mode) {
+function spaFallback404Plugin() {
   return {
-    name: 'ankan-honda-google-places-proxy',
-    configureServer(server) {
-      server.middlewares.use('/api/google-reviews', async (req, res) => {
-        const env = loadEnv(mode, process.cwd(), '');
-        const apiKey =
-          env.GOOGLE_PLACES_API_KEY || process.env.GOOGLE_PLACES_API_KEY || '';
-        const placeId =
-          env.GOOGLE_PLACE_ID ||
-          process.env.GOOGLE_PLACE_ID ||
-          'ChIJdYLqtemRiTkRUi6ZhdHVgh0';
-
-        const result = await fetchGooglePlaceReviews(apiKey, placeId);
-        res.statusCode = result.status;
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(result.body));
-      });
-    },
-    configurePreviewServer(server) {
-      server.middlewares.use('/api/google-reviews', async (req, res) => {
-        const env = loadEnv(mode, process.cwd(), '');
-        const apiKey =
-          env.GOOGLE_PLACES_API_KEY || process.env.GOOGLE_PLACES_API_KEY || '';
-        const placeId =
-          env.GOOGLE_PLACE_ID ||
-          process.env.GOOGLE_PLACE_ID ||
-          'ChIJdYLqtemRiTkRUi6ZhdHVgh0';
-
-        const result = await fetchGooglePlaceReviews(apiKey, placeId);
-        res.statusCode = result.status;
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(result.body));
-      });
+    name: 'ankan-honda-spa-404-fallback',
+    closeBundle() {
+      const distDir = path.resolve(process.cwd(), 'dist');
+      const indexFile = path.join(distDir, 'index.html');
+      const notFoundFile = path.join(distDir, '404.html');
+      if (fs.existsSync(indexFile)) {
+        fs.copyFileSync(indexFile, notFoundFile);
+      }
     },
   };
 }
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   base: '/ankan-honda/',
-  plugins: [react(), googlePlacesApiMiddleware(mode)],
+  plugins: [react(), spaFallback404Plugin()],
   server: {
     port: 5173,
     open: false,
   },
-}));
+});

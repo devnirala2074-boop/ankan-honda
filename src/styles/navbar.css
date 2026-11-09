@@ -115,20 +115,22 @@
   flex-shrink: 0;
 }
 
-.brand-emblem {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--honda-red) 0%, var(--deep-red) 100%);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.35rem;
-  letter-spacing: -0.03em;
-  box-shadow: 0 3px 10px rgba(204, 0, 0, 0.25);
+.honda-wing-mark {
+  width: 48px;
+  height: 35px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.honda-wing-mobile {
+  width: 42px;
+  height: 31px;
+}
+
+.honda-wing-footer {
+  width: 48px;
+  height: 35px;
 }
 
 .brand-text-group {
