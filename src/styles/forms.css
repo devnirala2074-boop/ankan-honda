@@ -19,35 +19,35 @@
 
 .form-card {
   background-color: var(--white);
-  border: 1px solid var(--border-gray);
+  border: var(--card-border);
   border-top: 4px solid var(--honda-red);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--card-radius);
+  padding: 1.35rem;
+  box-shadow: var(--card-shadow);
 }
 
 @media (min-width: 768px) {
   .form-card {
-    padding: 2.35rem;
+    padding: 2rem;
   }
 }
 
 .form-card-header {
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.15rem;
+  margin-bottom: 1.35rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-gray);
 }
 
 .form-card-header h2 {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.38rem;
   font-weight: 800;
   color: var(--charcoal);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .form-card-header p {
-  font-size: 0.9rem;
+  font-size: 0.885rem;
   color: var(--muted-gray);
 }
 
@@ -59,13 +59,13 @@
 .dealership-form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.1rem;
 }
 
 .form-row-two {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 1.1rem;
 }
 
 @media (min-width: 640px) {
@@ -77,15 +77,16 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.42rem;
+  gap: 0.38rem;
+  min-width: 0;
 }
 
 .form-label {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.38rem;
   font-family: var(--font-display);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--charcoal);
 }
@@ -94,18 +95,19 @@
 .form-select,
 .form-textarea {
   width: 100%;
-  padding: 0.75rem 0.95rem;
-  border: 1.5px solid #CFD3DA;
-  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
   background-color: var(--white);
   color: var(--charcoal);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-input,
 .form-select {
-  min-height: 46px;
+  height: var(--input-height);
+  min-height: var(--input-height);
 }
 
 .form-input:focus,
@@ -201,16 +203,42 @@
 .submission-result-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
+  gap: 0.65rem;
+}
+
+@media (max-width: 480px) {
+  .submission-result-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .submission-result-actions .btn {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .dealership-form .btn-block {
+    white-space: normal;
+    height: auto;
+    min-height: 44px;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.86rem;
+  }
 }
 
 /* Test Ride Sidebar */
 .sidebar-info-card {
   background-color: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  box-shadow: var(--shadow-xs);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 1.35rem;
+  box-shadow: var(--card-shadow);
+}
+
+@media (min-width: 768px) {
+  .sidebar-info-card {
+    padding: 1.65rem;
+  }
 }
 
 .sidebar-info-card h3 {
@@ -272,39 +300,51 @@
 
 .contact-info-panel {
   background-color: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: var(--radius-md);
-  padding: 1.85rem;
-  box-shadow: var(--shadow-xs);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 1.35rem;
+  box-shadow: var(--card-shadow);
+}
+
+@media (min-width: 768px) {
+  .contact-info-panel {
+    padding: 1.75rem;
+  }
 }
 
 .contact-info-panel h2 {
   font-family: var(--font-display);
-  font-size: 1.65rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--charcoal);
 }
 
 .contact-panel-lead {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--muted-gray);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.35rem;
 }
 
 .contact-methods-list {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 0.95rem;
 }
 
 .contact-method-card {
   display: flex;
   align-items: flex-start;
-  gap: 0.9rem;
-  padding: 1rem;
+  gap: 0.85rem;
+  padding: 0.95rem;
   background-color: var(--light-gray);
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-gray);
+  min-width: 0;
+}
+
+.contact-method-body {
+  min-width: 0;
+  flex: 1;
 }
 
 .contact-method-icon {
@@ -384,25 +424,38 @@
 
 .faq-question-btn {
   width: 100%;
-  padding: 1.15rem 1.35rem;
+  padding: 1rem 1.15rem;
   background-color: var(--white);
   border: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.85rem;
   text-align: left;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--charcoal);
   cursor: pointer;
 }
 
+@media (min-width: 640px) {
+  .faq-question-btn {
+    padding: 1.15rem 1.35rem;
+    font-size: 1rem;
+  }
+}
+
 .faq-q-left {
   display: flex;
-  align-items: center;
-  gap: 0.65rem;
+  align-items: flex-start;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.faq-q-left svg {
+  margin-top: 0.15rem;
+  flex-shrink: 0;
 }
 
 .faq-chevron {
@@ -417,10 +470,16 @@
 }
 
 .faq-answer-body {
-  padding: 0 1.35rem 1.25rem 3.1rem;
-  font-size: 0.92rem;
+  padding: 0 1.15rem 1.15rem 1.15rem;
+  font-size: 0.9rem;
   color: var(--muted-gray);
-  line-height: 1.65;
+  line-height: 1.62;
+}
+
+@media (min-width: 640px) {
+  .faq-answer-body {
+    padding: 0 1.35rem 1.25rem 3.1rem;
+  }
 }
 
 /* Services Page Extras */
@@ -509,9 +568,15 @@
 .services-checklist-card {
   background-color: var(--charcoal);
   color: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 2.25rem;
+  border-radius: var(--card-radius);
+  padding: 1.5rem;
   border-top: 4px solid var(--honda-red);
+}
+
+@media (min-width: 768px) {
+  .services-checklist-card {
+    padding: 2rem;
+  }
 }
 
 .services-checklist-card h3 {
@@ -595,12 +660,18 @@
 
 .about-pillar-card {
   background-color: var(--light-gray);
-  border: 1px solid var(--border-gray);
-  border-radius: var(--radius-md);
-  padding: 1.4rem;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 1.2rem;
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .about-pillar-card {
+    padding: 1.4rem;
+  }
 }
 
 .about-pillar-icon {

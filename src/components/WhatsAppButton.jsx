@@ -65,7 +65,7 @@ export default function WhatsAppButton() {
         onClick={handleClick}
         aria-label="Chat with Ankan Honda on WhatsApp"
       >
-        <WhatsAppIcon size={32} className="floating-wa-icon" />
+        <WhatsAppIcon size={26} className="floating-wa-icon" />
       </a>
     </div>
   );

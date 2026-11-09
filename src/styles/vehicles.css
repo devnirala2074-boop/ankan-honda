@@ -6,12 +6,13 @@
 .vehicles-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.75rem;
+  gap: 1.25rem;
 }
 
 @media (min-width: 680px) {
   .vehicles-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -24,20 +25,20 @@
 /* Vehicle Card */
 .vehicle-card {
   background-color: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: var(--radius-md);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-xs);
+  box-shadow: var(--card-shadow);
   transition: transform var(--transition-base), box-shadow var(--transition-base),
     border-color var(--transition-base);
 }
 
 .vehicle-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: #C8CDD6;
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: #CBD0DA;
 }
 
 .vehicle-card-media {
@@ -49,24 +50,24 @@
 
 .vehicle-card-badges {
   position: absolute;
-  top: 0.85rem;
-  left: 0.85rem;
-  right: 0.85rem;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.45rem;
   pointer-events: none;
 }
 
 .vehicle-category-pill {
   font-family: var(--font-display);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.24rem 0.65rem;
+  padding: 0.22rem 0.6rem;
   border-radius: 4px;
 }
 
@@ -81,18 +82,18 @@
 }
 
 .vehicle-segment-pill {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--charcoal);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.92);
   border: 1px solid var(--border-gray);
-  padding: 0.2rem 0.55rem;
+  padding: 0.18rem 0.5rem;
   border-radius: 4px;
 }
 
 .vehicle-card-image-link {
   display: block;
-  padding: 2.5rem 1.25rem 1.25rem;
+  padding: 2.25rem 1.15rem 1rem;
 }
 
 .vehicle-card-img {
@@ -107,18 +108,25 @@
 }
 
 .vehicle-card-body {
-  padding: 1.4rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
+@media (min-width: 768px) {
+  .vehicle-card-body {
+    padding: 1.35rem;
+  }
+}
+
 .vehicle-card-title {
   font-family: var(--font-display);
-  font-size: 1.32rem;
+  font-size: 1.24rem;
   font-weight: 800;
   color: var(--charcoal);
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.22;
 }
 
 .vehicle-card-title a:hover {
@@ -128,19 +136,19 @@
 .vehicle-spec-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.85rem;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
 }
 
 .vehicle-spec-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: #374151;
   background-color: var(--light-gray);
-  padding: 0.28rem 0.6rem;
+  padding: 0.24rem 0.55rem;
   border-radius: 4px;
 }
 
@@ -150,10 +158,10 @@
 }
 
 .vehicle-card-desc {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--muted-gray);
-  line-height: 1.58;
-  margin-bottom: 1.1rem;
+  line-height: 1.56;
+  margin-bottom: 1rem;
   flex: 1;
 }
 
@@ -162,8 +170,8 @@
   border: 1px solid var(--border-gray);
   border-left: 3px solid var(--honda-red);
   border-radius: var(--radius-sm);
-  padding: 0.75rem 0.9rem;
-  margin-bottom: 1.15rem;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 1rem;
 }
 
 .vehicle-price-label {
@@ -171,23 +179,23 @@
   align-items: center;
   gap: 0.35rem;
   font-family: var(--font-display);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--muted-gray);
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.12rem;
 }
 
 .vehicle-price-value {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--charcoal);
 }
 
 .vehicle-availability-note {
   display: block;
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   color: var(--muted-gray);
   margin-top: 0.1rem;
 }
@@ -195,11 +203,11 @@
 .vehicle-card-actions {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.6rem;
+  gap: 0.55rem;
   margin-top: auto;
 }
 
-@media (min-width: 440px) {
+@media (min-width: 390px) {
   .vehicle-card-actions {
     grid-template-columns: 1fr 1fr;
   }
@@ -210,13 +218,13 @@
 .btn.vehicle-btn-details,
 .btn.vehicle-btn-wa {
   width: 100%;
-  height: 44px;
-  min-height: 44px;
+  height: 40px;
+  min-height: 40px;
   box-sizing: border-box;
-  padding: 0 12px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  line-height: 1;
+  padding: 0 10px;
+  border-radius: var(--btn-radius);
+  font-size: 0.835rem;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
@@ -250,14 +258,15 @@
 .category-tab-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.1rem;
-  border-radius: var(--radius-sm);
+  gap: 0.45rem;
+  height: 38px;
+  padding: 0 0.95rem;
+  border-radius: var(--btn-radius);
   border: 1px solid var(--border-gray);
   background-color: var(--light-gray);
   color: var(--charcoal);
   font-family: var(--font-display);
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -274,8 +283,8 @@
 }
 
 .category-count-pill {
-  font-size: 0.74rem;
-  padding: 0.1rem 0.45rem;
+  font-size: 0.72rem;
+  padding: 0.1rem 0.42rem;
   border-radius: 999px;
   background-color: rgba(0, 0, 0, 0.12);
 }
@@ -287,7 +296,7 @@
 .search-sort-group {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
   flex: 1;
   max-width: 580px;
 }
@@ -301,11 +310,12 @@
 .search-input-wrapper {
   position: relative;
   flex: 1;
+  min-width: 0;
 }
 
 .search-input-icon {
   position: absolute;
-  left: 0.9rem;
+  left: 0.85rem;
   top: 50%;
   transform: translateY(-50%);
   color: var(--muted-gray);
@@ -314,17 +324,18 @@
 
 .catalogue-search-input {
   width: 100%;
-  height: 44px;
-  padding: 0 2.4rem 0 2.6rem;
-  border: 1px solid #CFD3DA;
-  border-radius: var(--radius-sm);
+  height: 42px;
+  padding: 0 2.3rem 0 2.45rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
   background-color: var(--white);
   color: var(--charcoal);
-  font-size: 0.9rem;
+  font-size: 0.885rem;
 }
 
 .catalogue-search-input:focus {
   border-color: var(--honda-red);
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.12);
   outline: none;
 }
 
@@ -342,7 +353,15 @@
 
 .sort-select-wrapper {
   position: relative;
-  min-width: 210px;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .sort-select-wrapper {
+    width: auto;
+    min-width: 205px;
+  }
 }
 
 .sort-icon {
@@ -356,14 +375,14 @@
 
 .catalogue-sort-select {
   width: 100%;
-  height: 44px;
-  padding: 0 0.9rem 0 2.4rem;
-  border: 1px solid #CFD3DA;
-  border-radius: var(--radius-sm);
+  height: 42px;
+  padding: 0 0.85rem 0 2.35rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
   background-color: var(--white);
   color: var(--charcoal);
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   cursor: pointer;
 }
 
@@ -661,44 +680,63 @@
 .vehicle-detail-cta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-bottom: 2rem;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 480px) {
+  .vehicle-detail-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vehicle-detail-cta-row .btn {
+    width: 100%;
+  }
 }
 
 .vehicle-overview-block h2 {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--charcoal);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 
 .vehicle-overview-block p {
-  font-size: 0.95rem;
+  font-size: 0.93rem;
   color: var(--muted-gray);
-  line-height: 1.68;
+  line-height: 1.65;
 }
 
 /* Specs & Highlights Section */
 .specs-highlights-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 1.35rem;
 }
 
 @media (min-width: 992px) {
   .specs-highlights-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
   }
 }
 
 .highlights-panel,
 .specs-panel {
   background-color: var(--white);
-  border: 1px solid var(--border-gray);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  box-shadow: var(--shadow-xs);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 1.35rem;
+  box-shadow: var(--card-shadow);
+}
+
+@media (min-width: 768px) {
+  .highlights-panel,
+  .specs-panel {
+    padding: 1.75rem;
+  }
 }
 
 .highlights-panel h2,
@@ -1059,11 +1097,18 @@
 .lightbox-stage {
   position: relative;
   background: radial-gradient(circle at center, #FFFFFF 0%, #E5E7EB 100%);
-  padding: 2rem 3.5rem;
+  padding: 1.25rem 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 320px;
+  min-height: 220px;
+}
+
+@media (min-width: 640px) {
+  .lightbox-stage {
+    padding: 2rem 3.5rem;
+    min-height: 320px;
+  }
 }
 
 .lightbox-img {
